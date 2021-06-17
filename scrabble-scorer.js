@@ -22,8 +22,8 @@ for (key in obj) {
 }
 return letterPoints;
 }
-let newPointStructure = transform(oldPointStructure);
 
+let newPointStructure = transform(oldPointStructure);
 
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
@@ -36,7 +36,6 @@ function oldScrabbleScorer(word) {
 		 if (oldPointStructure[pointValue].includes(word[i])) {
 			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
 		 }
- 
 	  }
 	}
 	return letterPoints;
@@ -55,7 +54,6 @@ function simpleScore(word) {
 let score = word.length;
 return score;
 }
-//console.log(simpleScore("apple"));
 
 function vowelBonusScore(word) {
   word = word.toUpperCase();
@@ -69,7 +67,6 @@ function vowelBonusScore(word) {
   }
   return score;
 }
-//console.log(vowelBonusScore("apple"));
 
 function scrabbleScore(word){
  word = word.toLowerCase();
@@ -109,8 +106,6 @@ function scorerPrompt() {
   }
   return scoringOption;
 }
-
-
 
 function runProgram() {
    initialPrompt();
