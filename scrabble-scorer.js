@@ -105,7 +105,7 @@ function scorerPrompt() {
   } else if (scoringOption == 1){
     console.log(`${scoringAlgorithms[1].name} Score for '${word}': ${scoringAlgorithms[1].scorerFunction}`)
   } else if (scoringOption == 2){
-    console.log(`${scoringAlgorithms[2].name} Score for '${word}': \n${scoringAlgorithms[2].scorerFunction}`)
+    console.log(`${scoringAlgorithms[2].name} Score for '${word}': ${scoringAlgorithms[2].scorerFunction}`)
   }
   return scoringOption;
 }
