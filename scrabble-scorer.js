@@ -23,9 +23,7 @@ for (key in obj) {
 return letterPoints;
 }
 let newPointStructure = transform(oldPointStructure);
-console.log("letter a: ", newPointStructure.a);
-console.log("letter q: ", newPointStructure.q);
-console.log("letter z: ", newPointStructure.z);
+
 
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
