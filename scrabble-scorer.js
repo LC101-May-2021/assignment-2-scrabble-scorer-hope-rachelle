@@ -12,6 +12,21 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
+function transform(obj) {
+  let letterPoints = {};
+for (key in obj) {
+  let eachLetter = obj[key];
+  for (let i = 0; i<obj[key].length; i++) {
+    letterPoints[eachLetter[i].toLowerCase()] = Number(key);
+  }
+}
+return letterPoints;
+}
+let newPointStructure = transform(oldPointStructure);
+console.log("letter a: ", newPointStructure.a);
+console.log("letter q: ", newPointStructure.q);
+console.log("letter z: ", newPointStructure.z);
+
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
@@ -58,7 +73,14 @@ function vowelBonusScore(word) {
 }
 //console.log(vowelBonusScore("apple"));
 
-let scrabbleScore;
+function scrabbleScore(word){
+ word = word.toLowerCase();
+  let score = 0;
+  for (let i = 0; i < word.length; i++) {
+    score += newPointStructure[word[i]];
+  }
+  return score;
+}
 
 const scoringAlgorithms = [
   {
@@ -74,7 +96,7 @@ const scoringAlgorithms = [
   {
     name: "Scrabble",
     description: "traditional",
-    scorerFunction:oldScrabbleScorer(word)
+    scorerFunction:scrabbleScore(word)
   }
 ];
 
@@ -90,18 +112,7 @@ function scorerPrompt() {
   return scoringOption;
 }
 
-function transform(obj) {
-  let letterPoints = {};
-for (key in obj) {
-  for (let i = 0; i<obj[key].length; i++) {
-    let eachLetter = obj[key][i];
-    eachLetter = eachLetter.toLowerCase();
-     letterPoints[eachLetter[i]] = Number(key);
-  }
-}
-return letterPoints;
-}
-let newPointStructure = transform(oldPointStructure);
+
 
 function runProgram() {
    initialPrompt();
