@@ -96,7 +96,7 @@ for (key in obj) {
   for (let i = 0; i<obj[key].length; i++) {
     let eachLetter = obj[key][i];
     eachLetter = eachLetter.toLowerCase();
-    letterPoints
+     letterPoints[eachLetter[i]] = Number(key);
   }
 }
 return letterPoints;
