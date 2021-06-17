@@ -90,9 +90,18 @@ function scorerPrompt() {
   return scoringOption;
 }
 
-function transform() {};
-
-let newPointStructure;
+function transform(obj) {
+  let letterPoints = {};
+for (key in obj) {
+  for (let i = 0; i<obj[key].length; i++) {
+    let eachLetter = obj[key][i];
+    eachLetter = eachLetter.toLowerCase();
+    letterPoints
+  }
+}
+return letterPoints;
+}
+let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
    initialPrompt();
