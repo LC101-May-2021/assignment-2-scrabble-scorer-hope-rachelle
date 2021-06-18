@@ -48,7 +48,7 @@ function initialPrompt() {
   word = input.question("Let's play some scrabble! Enter a word: ");
    return oldScrabbleScorer(word);
 }
-console.log(initialPrompt());
+initialPrompt();
 
 function simpleScore(word) {
 let score = word.length;
@@ -108,7 +108,7 @@ function scorerPrompt() {
 }
 
 function runProgram() {
-   initialPrompt();
+   //initialPrompt();
    scorerPrompt();
 }
 
