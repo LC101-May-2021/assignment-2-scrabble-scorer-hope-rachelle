@@ -46,9 +46,8 @@ function oldScrabbleScorer(word) {
 let word = "";
 function initialPrompt() {
   word = input.question("Let's play some scrabble! Enter a word: ");
-   return oldScrabbleScorer(word);
+   return word;
 }
-initialPrompt();
 
 function simpleScore(word) {
 let score = word.length;
@@ -81,34 +80,27 @@ const scoringAlgorithms = [
   {
     name: "Simple",
     description: "1 point per letter",
-    scorerFunction: simpleScore(word)
+    scoringFunction: simpleScore
   },
   {
     name: "VowelBonus",
     description: "consanants 1pt vowels 3pts",
-    scorerFunction: vowelBonusScore(word)
+    scoringFunction: vowelBonusScore
   },
   {
     name: "Scrabble",
     description: "traditional",
-    scorerFunction:scrabbleScore(word)
+    scoringFunction:scrabbleScore
   }
 ];
 
 function scorerPrompt() {
   let scoringOption = input.question(`Which scoring algorithm would you like to use?\n 0 - Simple: One point per letter\n 1 - Vowel Bonus: Vowels are worth 3 points\n 2 - Scrabble: Traditional scrabble point system\nEnter 0, 1, or 2: `);
-  if (scoringOption == 0){
-    console.log(`${scoringAlgorithms[0].name} Score for '${word}': ${scoringAlgorithms[0].scorerFunction}`)
-  } else if (scoringOption == 1){
-    console.log(`${scoringAlgorithms[1].name} Score for '${word}': ${scoringAlgorithms[1].scorerFunction}`)
-  } else if (scoringOption == 2){
-    console.log(`${scoringAlgorithms[2].name} Score for '${word}': ${scoringAlgorithms[2].scorerFunction}`)
-  }
-  return scoringOption;
+  console.log(`Score for '${word}': ${scoringAlgorithms[scoringOption].scoringFunction(word, newPointStructure)}`); 
 }
 
 function runProgram() {
-   //initialPrompt();
+   initialPrompt();
    scorerPrompt();
 }
 
